@@ -1,26 +1,34 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import { signInWithEmailAndPassword, getAuth } from "firebase/auth";
-
+import Indicator from "../components/Indicator";
+import {toast} from "react-toastify"
 function Login() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const auth = getAuth();
+  const [spinning, setSpinner]= useState(false);
+
 
   const login = async () => {
+
     try {
+      setSpinner(true)
+
       const result = await signInWithEmailAndPassword(auth, email, password);
       localStorage.setItem("currentuser", JSON.stringify(result));
       window.location.href = "/";
-      alert("Login successful");
+      setSpinner(false)
     } catch (error) {
       console.log(error);
-      alert("Login failed");
+      setSpinner(false)
+      toast.error(" Wrong attemp")
     }
   };
 
   return (
     <div className="login-parent">
+      {spinning && (<Indicator/>)}
       <div className="row justify-content center">
         <div className="col-md-6">
           <lottie-player

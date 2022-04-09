@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import {  createUserWithEmailAndPassword, getAuth } from "firebase/auth";
 import { Link } from "react-router-dom";
+import { toast } from "react-toastify";
 
 
 function Signup() {
@@ -9,15 +10,16 @@ function Signup() {
   const [cpassword, setcPassword] = useState("");
   const auth=getAuth();
 
-  const register=async()=>{
+  const register= async()=>{
     try {
+        
       const result= await createUserWithEmailAndPassword( auth,email, password)
       console.log(result);
-      alert('Registration successful')
+      toast.success(" Registration success")
 
     } catch (error) {
       console.log(error)
-      alert("Registration failed")
+      toast.error("Failed")
       
     }  }
   return (

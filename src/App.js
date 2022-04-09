@@ -6,10 +6,12 @@ import Cart from "./pages/Cart";
 import Login from "./pages/Login";
 import Productinfo from './pages/Productinfo'
 import Signup from "./pages/Signup";
+import Booking from "./pages/Booking";
 
 import "./style/layout.css"
 import "./style/home.css"
 import "./style/product.css"
+import "./style/banner.css"
 
 import {
   Routes,
@@ -30,8 +32,9 @@ function App() {
           <Route path="/cart" excact element={<Cart />}></Route>
           <Route path="/login" excact element={<Login />}></Route>
           <Route path="/productlist" excact element={<ProductList />}></Route>
-          <Route path="/productinfo:id" excact element={<Productinfo />}></Route>
+          <Route path="/productinfo/:id" excact element={<Productinfo />}></Route>
           <Route path="/signup" excact element={< Signup />}></Route>
+          <Route path="/booking" excact element={< Booking />}></Route>
         </Routes>
       </BrowserRouter>
     </div>

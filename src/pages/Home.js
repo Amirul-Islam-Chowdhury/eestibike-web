@@ -1,18 +1,29 @@
 import React from "react";
+import Banner from "../components/Banner";
 
 import Layout from "../components/Layout";
-import Productinfo from "./Productinfo";
 import ProductList from "./ProductList";
+import Booking from "./Booking"
+import Menu from "../components/Menu";
 
 
 
 function Home() {
   return (
     <Layout>
-       <h1
-        > Home</h1>
 
-        <ProductList/>
+
+      <Banner/>
+
+      <Menu/>
+
+
+     
+       
+
+       
+
+
 
 
 
