@@ -11,13 +11,15 @@ function Productinfo() {
 
   useEffect(() => {
     getData();
-  }, []);
+  }, );
 
   async function getData() {
     try {
       const productTemp = await getDoc(doc(firedb, "products", params.id));
 
-      console.log(productTemp.data);
+
+      console.log(productTemp.data())
+
       setproduct(productTemp.data());
     } catch (error) {
       console.log(error);
@@ -25,15 +27,29 @@ function Productinfo() {
   }
 
   return (
+    <Layout>
       <div className="conatiner">
         <div className="row justify-content-center">
           <div className="col-md-8">
             {product && (
-              product.name
+              <div>
+                <h5>{product.name}</h5>
+                <img
+                  src={product.imageURL}
+                  alt=""
+                  className="product-info-img"
+                />
+                <hr />
+                <p>{product.description}</p>
+                <div className="d-flex justify-content-end my-3">
+                  <button> Add To Cart</button>
+                </div>
+              </div>
             )}
           </div>
         </div>
       </div>
+    </Layout>
   );
 }
 

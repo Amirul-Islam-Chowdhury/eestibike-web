@@ -29,7 +29,7 @@ function App() {
           <Route path="/cart" excact element={<Cart />}></Route>
           <Route path="/login" excact element={<Login />}></Route>
           <Route path="/productlist" excact element={<ProductList />}></Route>
-          <Route path="/productinfo" excact element={<Productinfo />}></Route>
+          <Route path="/productinfo:id" excact element={<Productinfo />}></Route>
         </Routes>
       </BrowserRouter>
     </div>

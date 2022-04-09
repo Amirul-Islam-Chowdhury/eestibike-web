@@ -3,13 +3,20 @@ import React, { useState } from "react";
 import { getDocs, collection } from "firebase/firestore";
 import firedb from "../firebaseConfig";
 import { useEffect } from "react";
+import { useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
 import { BsTools} from "react-icons/bs";
+import { Navigate, useNavigate } from "react-router-dom";
 
 
 function ProductList() {
 
   const [products, setproducts]= useState([]);
- 
+  const navigate= useNavigate()
+  const { cartItems } = useSelector((state) => state.cartReducer);
+  const dispatch = useDispatch();
+
+
 
   useEffect(() => {
     getData();
@@ -35,7 +42,14 @@ function ProductList() {
     }
   }
 
-  
+
+
+  const addToCart = (product) => {
+    dispatch({ type: "ADD_TO_CART", payload: product });
+  };
+  useEffect(() => {
+    localStorage.setItem("cartItems", JSON.stringify(cartItems));
+  }, [cartItems]);
  
 
 
@@ -51,7 +65,7 @@ function ProductList() {
           return (
             <div className="col-md-3">
               <div className="m-2 p-2 product position relative">
-                <div className="product-content" key={product.id}>
+                <div className="product-content">
                   <p>{product.name}</p>
                   <div className="text-center">
                     <img
@@ -64,15 +78,15 @@ function ProductList() {
                   <div className="product-actions">
                     <div className="d-flex justify-content-center ">
                       <button className="btn-primary"
-                        // onClick={() => {
-                        //   addToCart(product);
-                        // }}
+                        onClick={() => {
+                          addToCart(product);
+                        }}
                       >
                         Add to cart
                       </button>
                       <button 
-                      // className="btn-secondary"
-                      //   onClick={() => navigate(`/productinfo/${product.id}`)}
+                      className="btn-secondary"
+                        onClick={() => navigate(`/productinfo/${product.id}`)}
                       >
                         View{" "}
                       </button>
