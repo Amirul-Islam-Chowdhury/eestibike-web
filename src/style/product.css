@@ -1,0 +1,53 @@
+.product-img{
+    height: 200px;
+    width: 150px;
+    align-content: center;
+    
+
+
+}
+.product p{
+    min-height: 3.0rm;
+    text-align: center;
+}
+
+.row{
+    flex-direction: row;    
+}
+.product{
+    box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+}
+.row button{
+    
+margin-right: 10px;
+align-items: center;
+color: black;
+width: 100px;
+
+}
+.product:hover .product-actions{
+    opacity: 1;
+}
+.product .product-actions{
+    position: relative;
+    top: 0;
+    left: 0;
+    right: 0;
+    opacity: 0;
+    background-color: transparent;
+}
+.product-info-img{
+    height: 70vh;
+}
+.signup-btn{
+    width: 100px;
+}
+
+
+
+
+
+
+
+
+

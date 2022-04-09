@@ -1,0 +1,25 @@
+.calendly-badge-widget {
+    position: fixed;
+    right: 90;
+    bottom: 15px;
+    z-index: 9998;
+}
+.calendly-badge-widget .calendly-badge-content {
+    display: flexbox;
+    height: 44px;
+    width: 60vh;
+    padding: 0 30px;
+    box-shadow: rgb(0 0 0 / 25%) 0 2px 5px;
+    font-family: sans-serif;
+    text-align: center;
+    vertical-align: middle;
+    font-weight: bold;
+    font-size: 14px;
+    margin: 10vh;
+
+}
+.element.style{
+    background-color: aquamarine;
+}
+
+
