@@ -11,7 +11,7 @@ i18n
     backend: {
       loadPath: "/assets/i18n/{{ns}}/{{lng}}.json",
     },
-    fallbackLng: "fr",
+    fallbackLng: "en",
     debug: false,
     ns: ["common", "home", "profile"],
     interpolation: {

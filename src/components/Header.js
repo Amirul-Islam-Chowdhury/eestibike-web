@@ -1,17 +1,29 @@
-import React, { useState } from "react";
+import React  from "react";
 import { Link } from "react-router-dom";
 import { FaBars } from "react-icons/fa";
 import { useSelector } from "react-redux";
-import { use } from "i18next";
+import i18next from "i18next";
+import { useEffect } from "react";
+import { useTranslation } from "react-i18next";
 
 function Header() {
-  const { cartItems } = useSelector((state) => state.cartReducer);
-  const {user}=JSON.parse(localStorage.getItem("currentuser"));
+  const { i18n, t } = useTranslation(["common"]);
 
-  const logout=()=>{
+  useEffect(() => {
+    if (localStorage.getItem("i18nextLng")?.length > 2) {
+      i18next.changeLanguage("en");
+    }
+  }, []);
+  const handleLanguageChange = (e) => {
+    i18n.changeLanguage(e.target.value);
+  };
+  const { cartItems } = useSelector((state) => state.cartReducer);
+  const { user } = JSON.parse(localStorage.getItem("currentuser"));
+
+  const logout = () => {
     localStorage.removeItem("currentuser");
     window.location.reload();
-  }
+  };
 
   return (
     <div>
@@ -37,13 +49,11 @@ function Header() {
             <ul className="navbar-nav ms-auto">
               <li className="nav-item">
                 <Link className="nav-link active" aria-current="page" to="/">
-                  {user.email.substring(0, user.email.length-10)}
+                  {user.email.substring(0, user.email.length - 10)}
                 </Link>
               </li>
               <li className="nav-item">
-                <Link className="nav-link" to="/">
-                  Orders
-                </Link>
+                <Link className="nav-link" to="/"></Link>
               </li>
 
               <li className="nav-item">
@@ -51,36 +61,21 @@ function Header() {
                   Cart {cartItems.length}
                 </Link>
               </li>
-              <li class="nav-item dropdown">
-                <a
-                  class="nav-link dropdown-toggle"
-                  href="#"
-                  id="navbarDropdownMenuLink"
-                  role="button"
-                  data-bs-toggle="dropdown"
-                  aria-expanded="false"
+              <li className="nav-item">
+                <select
+                  className="nav-link bg-dark"
+                  onChange={handleLanguageChange}
+
+                  value={localStorage.getItem("i18nextLng")}
                 >
-                  Language
-                </a>
-                <ul
-                  class="dropdown-menu"
-                  aria-labelledby="navbarDropdownMenuLink"
-                >
-                  <li>
-                    <a class="dropdown-item" href="#">
-                      ENG
-                    </a>
-                  </li>
-                  <li>
-                    <a class="dropdown-item" href="#">
-                      EST
-                    </a>
-                  </li>
-                </ul>
+                  <option value="en"> ENGLISH</option>
+                  <option value="fr"> FRENCH</option>
+                </select>
               </li>
+
               <li className="nav-item">
                 <Link className="nav-link" to="/" onClick={logout}>
-                  Logout
+                  {t("Logout")}
                 </Link>
               </li>
             </ul>

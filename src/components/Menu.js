@@ -1,10 +1,8 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
-import { useEffect } from "react";
 
 import{BsCalendarCheck,BsFillBagCheckFill,BsFillTelephoneFill,BsWrench}from "react-icons/bs"
 import{useTranslation} from "react-i18next"
-import i18next from "i18next";
 
 function Manu() {
   const navigate = useNavigate();
@@ -12,39 +10,37 @@ function Manu() {
   const {t}=useTranslation(["common"]);
 
 
-  useEffect(()=>{
-    if(localStorage.getItem("i18nextLng")?.length>2){
-      i18next.changeLanguage("en");
-    }
-   },[]);
+  
    
 
 
   return (
-    <div class="container">
-      <div class="row ">
-        <hr/>
-        <div class="col-sm">
+    <div class="container justify-content-center">
+      <hr/>
+      <div class="row justify-content-center p-2 mt-2 ">
+        <div class="col">
+
           <button
-            className=" btn btn-primary btn-lg btn-block "
+            className="btn-outline-secondary  btn-booking " 
             onClick={() => navigate(`./booking`)}
           >
             {" "}
-           <BsCalendarCheck/> {t("book time")}
+           <BsCalendarCheck/> {t("Book time")}
           </button>
         </div>
         <div class="col">
-          <button className="btn btn-primary btn-lg btn-block "
-            onClick={() => navigate(`/productlist`)}> <BsFillBagCheckFill/> {t("Shppoing")}</button>
+          <button className="btn-outline-secondary "
+            onClick={() => navigate(`/productlist`)}> <BsFillBagCheckFill/> {t("Shop")}</button>
         </div>
         <div class="col">
-          <button className=" btn btn-primary btn-lg btn-block"> <BsWrench/>{t("Services")} </button>
+          <button className=" btn-outline-secondary" onClick={() => navigate(`/services`)}> <BsWrench/>{t(" Services")} </button>
         </div>
         <div class="col">
-          <button className=" btn btn-primary btn-lg btn-block"> <BsFillTelephoneFill/> {t("Contact")} </button>
+          <button className=" btn-outline-secondary" onClick={() => navigate(`/contact`)}> <BsFillTelephoneFill/> {t("Contact")} </button>
         </div>
         
       </div>
+      <hr/>
     </div>
   );
 }

@@ -59,3 +59,10 @@ a{
 }
 
 
+.row button {
+    align-items: center;
+    color: black;
+    width: 150px;
+    max-width: 150px;
+    background-color: aliceblue;
+}

@@ -1,5 +1,5 @@
 import "./App.css";
-import React from "react";
+import React, { Suspense } from "react";
 import Home from "./pages/Home";
 import About from "./pages/About";
 import Cart from "./pages/Cart";
@@ -7,12 +7,15 @@ import Login from "./pages/Login";
 import Productinfo from './pages/Productinfo'
 import Signup from "./pages/Signup";
 import Booking from "./pages/Booking";
+import Contact from "./pages/Contact";
+import Services from "./pages/Services";
 
 import "./style/layout.css"
 import "./style/home.css"
 import "./style/product.css"
 import "./style/banner.css"
 import "./style/login.css"
+import "./style/menu.css"
 
 import {
   Routes,
@@ -31,6 +34,7 @@ function App() {
   return (
     <div className="App">
       <ToastContainer/>
+      <Suspense fallback={null}>
       <BrowserRouter>
         <Routes>
           <Route path="/" excact element={ 
@@ -46,8 +50,11 @@ function App() {
           <Route path="/productinfo/:id" excact element={ <ProtectedRoutes> <Productinfo /></ProtectedRoutes>}/>
           <Route path="/signup" excact element={< Signup />}/>
           <Route path="/booking" excact element={< Booking />}/>
+          <Route path="/contact" excact element={< Contact />}/>
+          <Route path="/services" excact element={< Services />}/>
         </Routes>
       </BrowserRouter>
+      </Suspense>
     </div>
   );
 }
