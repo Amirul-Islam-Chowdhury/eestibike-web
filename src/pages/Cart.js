@@ -10,9 +10,32 @@ import firedb from "../firebaseConfig";
 function Cart() {
 
   const { cartItems } = useSelector((state) => state.cartReducer);
+  const [total, setTotal] = useState(0);
+
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    let temp = 0;
+    cartItems.forEach((cartItem) => {
+      temp = temp + cartItem.price;
+    });
+    setTotal(temp);
+  }, [cartItems]);
+
+  useEffect(() => {
+    localStorage.setItem("cartItems", JSON.stringify(cartItems));
+  }, [cartItems]);
+
+  const deleteFromCart = (product) => {
+    dispatch({ type: "DELETE_FROM_CART", payload: product });
+  };
+
+
 
   
   return (
+
+    
     
     <Layout>
 
@@ -39,7 +62,7 @@ function Cart() {
                 <td> <img src={item.imageURL} height="60" width="60"/></td>
                 <td> {item.name}</td>
                 <td> {item.price}</td>
-                <td> <FaTrash/></td>
+                <td> <FaTrash onClick={() => deleteFromCart(item)}/></td>
               </tr>
 
             }
@@ -47,6 +70,15 @@ function Cart() {
 
         </tbody>
       </table>
+
+      <div className="d-flex justify-content-end p-4">
+        <h1> Total = $ {total} </h1>
+      </div>
+      <div className="d-flex justify-content-end p-4">
+        <button> Place Order </button>
+      </div>
+
+      
       
     </Layout>
   );

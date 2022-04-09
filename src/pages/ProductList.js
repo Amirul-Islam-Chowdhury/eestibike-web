@@ -7,6 +7,7 @@ import { useSelector } from "react-redux";
 import { useDispatch } from "react-redux";
 import { BsTools} from "react-icons/bs";
 import { Navigate, useNavigate } from "react-router-dom";
+import Layout from "../components/Layout";
 
 
 function ProductList() {
@@ -15,6 +16,7 @@ function ProductList() {
   const navigate= useNavigate()
   const { cartItems } = useSelector((state) => state.cartReducer);
   const dispatch = useDispatch();
+  const [spinning, setSpinner]= useState(false);
 
 
 
@@ -23,6 +25,7 @@ function ProductList() {
   }, []);
 
   async function getData() {
+    setSpinner(true)
     try {
       const users = await getDocs(collection(firedb, "products"));
       const productsArray = [];
@@ -35,10 +38,11 @@ function ProductList() {
       });
 
       setproducts(productsArray);
+      setSpinner(false)
 
-      console.log(productsArray);
     } catch (error) {
       console.log(error);
+      setSpinner(false)
     }
   }
 
@@ -55,6 +59,7 @@ function ProductList() {
 
 
   return (
+    <Layout spinning={spinning}>
     <div className="container p-2">
      <hr/>
       <h3> Accessories</h3>
@@ -99,6 +104,7 @@ function ProductList() {
         })}
       </div>
     </div>
+    </Layout>
   );
 }
 

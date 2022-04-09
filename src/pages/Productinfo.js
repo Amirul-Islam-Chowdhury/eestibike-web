@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from "react";
-
 import Layout from "../components/Layout";
 import { getDoc, doc } from "firebase/firestore";
 import firedb from "../firebaseConfig";

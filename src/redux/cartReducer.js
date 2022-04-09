@@ -1,5 +1,5 @@
 const initialstate ={
-    cartItems:["1"],
+    cartItems:[],
 }
 
 export const cartReducer = (state= initialstate, action) =>{
@@ -10,6 +10,13 @@ export const cartReducer = (state= initialstate, action) =>{
             return{
                 ...state,
                 cartItems:[...state.cartItems, action.payload]
+            }
+        }
+
+        case "DELETE_FROM_CART": {
+            return{
+                ...state,
+                cartItems : state.cartItems.filter(obj=>obj.id !==action.payload.id)
             }
         }
 
