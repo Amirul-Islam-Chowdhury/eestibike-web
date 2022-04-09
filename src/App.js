@@ -12,6 +12,7 @@ import "./style/layout.css"
 import "./style/home.css"
 import "./style/product.css"
 import "./style/banner.css"
+import "./style/login.css"
 
 import {
   Routes,
@@ -21,20 +22,30 @@ import {
   BrowserRouter,
 } from "react-router-dom";
 import ProductList from "./pages/ProductList";
+import { ToastContainer } from "react-toastify";
+import 'react-toastify/dist/ReactToastify.css';
+
+
 
 function App() {
   return (
     <div className="App">
+      <ToastContainer/>
       <BrowserRouter>
         <Routes>
-          <Route path="/" excact element={<Home />}></Route>
-          <Route path="/about" excact element={<About />}></Route>
-          <Route path="/cart" excact element={<Cart />}></Route>
-          <Route path="/login" excact element={<Login />}></Route>
-          <Route path="/productlist" excact element={<ProductList />}></Route>
-          <Route path="/productinfo/:id" excact element={<Productinfo />}></Route>
-          <Route path="/signup" excact element={< Signup />}></Route>
-          <Route path="/booking" excact element={< Booking />}></Route>
+          <Route path="/" excact element={ 
+
+            <ProtectedRoutes> <Home /></ProtectedRoutes>
+
+            }/>
+           
+          <Route path="/about" excact element={ <ProtectedRoutes> <About /></ProtectedRoutes>}/>
+          <Route path="/cart" excact element={ <ProtectedRoutes> <Cart /></ProtectedRoutes>}/>
+          <Route path="/login" excact element={<Login />}/>
+          <Route path="/productlist" excact element={ <ProtectedRoutes> <ProductList /></ProtectedRoutes>}/>
+          <Route path="/productinfo/:id" excact element={ <ProtectedRoutes> <Productinfo /></ProtectedRoutes>}/>
+          <Route path="/signup" excact element={< Signup />}/>
+          <Route path="/booking" excact element={< Booking />}/>
         </Routes>
       </BrowserRouter>
     </div>
@@ -42,3 +53,13 @@ function App() {
 }
 
 export default App;
+
+export const ProtectedRoutes =({children})=>{
+  if (localStorage.getItem("currentuser")){
+    return children;
+  } else
+  {
+    return <Navigate to="/login"/>
+  }
+
+}

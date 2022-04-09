@@ -12,9 +12,7 @@
     margin-top: 15px !important;
   }
   
-  .row button{
-    color: white;
-  }
+  
   .register-form{
     box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 1px 3px 1px;
   padding: 20px;
@@ -32,9 +30,7 @@
     align-items: center;
   
   }
-  .row button{
-    color: white;
-  }
+  
   .login-form{
     box-shadow: rgba(0, 0, 0, 0.45) 0px 25px 20px -20px;
   padding: 20px;

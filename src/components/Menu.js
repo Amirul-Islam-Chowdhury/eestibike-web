@@ -2,7 +2,7 @@ import React from "react";
 import { useNavigate } from "react-router-dom";
 import { useEffect } from "react";
 
-import{BsCalendarCheck,BsFillBagCheckFill}from "react-icons/bs"
+import{BsCalendarCheck,BsFillBagCheckFill,BsFillTelephoneFill,BsWrench}from "react-icons/bs"
 import{useTranslation} from "react-i18next"
 import i18next from "i18next";
 
@@ -26,7 +26,7 @@ function Manu() {
         <hr/>
         <div class="col-sm">
           <button
-            className=" btn-outline-dark px "
+            className=" btn btn-primary btn-lg btn-block "
             onClick={() => navigate(`./booking`)}
           >
             {" "}
@@ -34,11 +34,14 @@ function Manu() {
           </button>
         </div>
         <div class="col">
-          <button className="btn-outline-dark "
-            onClick={() => navigate(`/productlist`)}> <BsFillBagCheckFill/> {t("eshop")}</button>
+          <button className="btn btn-primary btn-lg btn-block "
+            onClick={() => navigate(`/productlist`)}> <BsFillBagCheckFill/> {t("Shppoing")}</button>
         </div>
         <div class="col">
-          <button className=" btn-outline-dark">{t("about")} </button>
+          <button className=" btn btn-primary btn-lg btn-block"> <BsWrench/>{t("Services")} </button>
+        </div>
+        <div class="col">
+          <button className=" btn btn-primary btn-lg btn-block"> <BsFillTelephoneFill/> {t("Contact")} </button>
         </div>
         
       </div>

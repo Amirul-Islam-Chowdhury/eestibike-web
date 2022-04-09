@@ -8,6 +8,11 @@ function Header() {
   const { cartItems } = useSelector((state) => state.cartReducer);
   const {user}=JSON.parse(localStorage.getItem("currentuser"));
 
+  const logout=()=>{
+    localStorage.removeItem("currentuser");
+    window.location.reload();
+  }
+
   return (
     <div>
       <nav className="navbar navbar-expand-lg navbar-light bg-dark">
@@ -74,7 +79,7 @@ function Header() {
                 </ul>
               </li>
               <li className="nav-item">
-                <Link className="nav-link" to="/">
+                <Link className="nav-link" to="/" onClick={logout}>
                   Logout
                 </Link>
               </li>
