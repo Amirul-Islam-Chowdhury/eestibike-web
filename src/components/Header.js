@@ -1,6 +1,7 @@
 import React from "react";
 import { useSelector } from "react-redux";
 import { Link } from "react-router-dom";
+import  {FaBars} from "react-icons/fa"
 
 
 
@@ -9,7 +10,7 @@ function Header() {
 
   return(
    < div>
-    <nav className="navbar navbar-expand-lg navbar-light bg-light">
+    <nav className="navbar navbar-expand-lg navbar-light bg-dark">
       <div className="container-fluid">
         <Link className="navbar-brand" to="/">
           EestiBikes
@@ -23,7 +24,7 @@ function Header() {
           aria-expanded="false"
           aria-label="Toggle navigation"
         >
-          <span className="navbar-toggler-icon"></span>
+          <span className="navbar-toggler-icon"><FaBars /></span>
         </button>
         <div className="collapse navbar-collapse" id="navbarNav">
           <ul className="navbar-nav ms-auto">
