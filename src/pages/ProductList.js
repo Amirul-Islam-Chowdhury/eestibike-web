@@ -8,7 +8,7 @@ import { useDispatch } from "react-redux";
 import { BsTools} from "react-icons/bs";
 import { Navigate, useNavigate } from "react-router-dom";
 import Layout from "../components/Layout";
-
+import { useTranslation } from "react-i18next";
 
 function ProductList() {
 
@@ -17,6 +17,8 @@ function ProductList() {
   const { cartItems } = useSelector((state) => state.cartReducer);
   const dispatch = useDispatch();
   const [spinning, setSpinner]= useState(false);
+  const {  t } = useTranslation(["common"]);
+
 
 
 
@@ -62,7 +64,7 @@ function ProductList() {
     <Layout spinning={spinning}>
     <div className="container p-2">
      <hr/>
-      <h3> Accessories</h3>
+      <h3> {t("Accessories")}</h3>
       <hr />
 
       <div className="row">
@@ -82,18 +84,18 @@ function ProductList() {
                   </div>
                   <div className="product-actions">
                     <div className="d-flex justify-content-center ">
-                      <button className="btn-primary"
+                      <button className="login-btn success"
                         onClick={() => {
                           addToCart(product);
                         }}
                       >
-                        Add to cart
+                        {t("Add To Cart")}
                       </button>
                       <button 
-                      className="btn-secondary"
+                      className="signup-btn info"
                         onClick={() => navigate(`/productinfo/${product.id}`)}
                       >
-                        View{" "}
+                        {t("View")}
                       </button>
                     </div>
                   </div>

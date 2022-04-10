@@ -1,9 +1,13 @@
 import React, { useState } from "react";
-import { Link } from "react-router-dom";
 import { signInWithEmailAndPassword, getAuth } from "firebase/auth";
 import Indicator from "../components/Indicator";
 import {toast} from "react-toastify"
+import { useNavigate } from "react-router-dom";
+
+
 function Login() {
+  const navigate = useNavigate();
+
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const auth = getAuth();
@@ -65,12 +69,12 @@ function Login() {
               }}
             />
 
-            <button className="btn-success mt-2" onClick={login}>
+            <button className="login-btn success" onClick={login}>
               {" "}
               Login{" "}
             </button>
-            <hr />
-            <Link to={"/signup"}>Register Here </Link>
+           
+            <button className="signup-btn info" onClick={() => navigate(`/signup`)}> Signup </button>
           </div>
         </div>
       </div>

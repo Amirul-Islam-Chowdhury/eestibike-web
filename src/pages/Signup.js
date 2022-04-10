@@ -24,6 +24,7 @@ function Signup() {
     }  }
   return (
     <div className="registration-parent">
+
       <div className="row justify-content center">
         <div className="col-md-5">
           <lottie-player
@@ -38,8 +39,10 @@ function Signup() {
           </lottie-player>
         </div>
         <div className="col-md-4">
+        <h1 className="login-page-head">EestiBikes</h1>
+
           <div className="register-form">
-            <h2> Register </h2>
+            <h2> Signup </h2>
             <hr />
 
             <input
@@ -70,7 +73,7 @@ function Signup() {
               }}
             />
 
-            <button className="signup-btn btn-primary mt-2" onClick={register}> Signup </button>
+            <button className="signup-btn info" onClick={register}> Signup </button>
             <hr/>
             <Link to="/login" > Go to Login </Link>
           </div>

@@ -9,6 +9,7 @@ import Signup from "./pages/Signup";
 import Booking from "./pages/Booking";
 import Contact from "./pages/Contact";
 import Services from "./pages/Services";
+import Orders from "./pages/Orders";
 
 import "./style/layout.css"
 import "./style/home.css"
@@ -52,6 +53,7 @@ function App() {
           <Route path="/booking" excact element={< Booking />}/>
           <Route path="/contact" excact element={< Contact />}/>
           <Route path="/services" excact element={< Services />}/>
+          <Route path="/orders" excact element={< Orders />}/>
         </Routes>
       </BrowserRouter>
       </Suspense>

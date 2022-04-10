@@ -53,23 +53,25 @@ function Header() {
                 </Link>
               </li>
               <li className="nav-item">
-                <Link className="nav-link" to="/"></Link>
+                <Link className="nav-link" to="/orders">
+                  {t("Orders")}
+                </Link>
               </li>
 
               <li className="nav-item">
                 <Link className="nav-link" to="/cart">
-                  Cart {cartItems.length}
+                  {t("Cart")} {cartItems.length}
                 </Link>
               </li>
-              <li className="nav-item">
+              <li className="nav-item ">
                 <select
-                  className="nav-link bg-dark"
+                  className="nav-link bg-dark "
                   onChange={handleLanguageChange}
 
                   value={localStorage.getItem("i18nextLng")}
                 >
-                  <option value="en"> ENGLISH</option>
-                  <option value="fr"> FRENCH</option>
+                  <option value="en"> ENG</option>
+                  <option value="et"> EST</option>
                 </select>
               </li>
 

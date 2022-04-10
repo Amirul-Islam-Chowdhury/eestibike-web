@@ -67,12 +67,9 @@ alert("failed!")
   }
   return (
     <Layout>
-      <table className="table">
+      <table className="table p-2">
         <thead>
-          <tr></tr>
-          <th>name</th>
-          <th>image</th>
-          <th>price</th>
+          
         </thead>
         <tbody>
           {cartItems.map((item) => {
@@ -96,7 +93,7 @@ alert("failed!")
         <h1> Total = $ {total} </h1>
       </div>
       <div className="d-flex justify-content-end p-4">
-        <button onClick={handleShow}> Next </button>
+        <button className="btn-outline-success btn-lg" onClick={handleShow}> Next </button>
 
       </div>
 
@@ -144,10 +141,10 @@ alert("failed!")
           
            </Modal.Body>
         <Modal.Footer>
-          <button  onClick={handleClose}>
+          <button  className="btn-outline-danger" onClick={handleClose}>
             Close
           </button>
-          <button  onClick={placeorder}>
+          <button className="btn-outline-success" onClick={placeorder}>
 
             Place Order
           </button>

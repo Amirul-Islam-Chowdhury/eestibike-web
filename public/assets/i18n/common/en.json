@@ -5,7 +5,13 @@
     "Service " :"Service",
     "Contact" : "Contact",
     "Orders":"Orders",
-    "Logout":"Logout"
+    "Logout":"Logout",
+    "Appointmnet":"Appointment",
+    "Accessories":"Accessories",
+    "Services":"Services",
+    "Cart":"Cart",
+    "Add To Cart":"Add To Cart",
+    "View":"View"
     
    
 

@@ -3,13 +3,7 @@
     background-color: #000000!important
     
 }
-.navbar-brand{
-    color: rgb(0, 0, 0) !important;
-    font-size: 50px ;
-    font-family:  fantasy;
-    margin-left: 50px;
-    
-}
+
 
 
 .content{
@@ -36,6 +30,9 @@
 .heading {
     align-items: center;
 }
+.navbar-2 {
+    display: flex;
+}
 
 
 
@@ -59,10 +56,4 @@ a{
 }
 
 
-.row button {
-    align-items: center;
-    color: black;
-    width: 150px;
-    max-width: 150px;
-    background-color: aliceblue;
-}
+
