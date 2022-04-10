@@ -2,33 +2,18 @@ import React from "react";
 import Banner from "../components/Banner";
 
 import Layout from "../components/Layout";
-import ProductList from "./ProductList";
-import Booking from "./Booking"
 import Menu from "../components/Menu";
-
-
+import About from "./About";
 
 function Home() {
   return (
     <Layout>
+      <Banner />
 
-
-      <Banner/>
-
-      <Menu/>
-
-
-     
-       
-
-       
-
-
-
-
+      <Menu />
+      <About/>
 
     </Layout>
-       
   );
 }
 

@@ -3,7 +3,11 @@ import React from 'react'
 function Footer() {
   return (
     <div className='footer'>
-       <p> Designed and developed by  Amirul</p>
+       <p>copyright &copy;2022 EestiBikes</p>
+       
+    
+      
+
      
       
 

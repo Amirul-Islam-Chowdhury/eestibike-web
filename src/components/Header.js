@@ -1,6 +1,7 @@
 import React  from "react";
 import { Link } from "react-router-dom";
 import { FaBars } from "react-icons/fa";
+import {BsFillPersonFill,BsCartPlusFill} from "react-icons/bs"
 import { useSelector } from "react-redux";
 import i18next from "i18next";
 import { useEffect } from "react";
@@ -49,7 +50,7 @@ function Header() {
             <ul className="navbar-nav ms-auto">
               <li className="nav-item">
                 <Link className="nav-link active" aria-current="page" to="/">
-                  {user.email.substring(0, user.email.length - 10)}
+                  <BsFillPersonFill/>{user.email.substring(0, user.email.length - 10)}
                 </Link>
               </li>
               <li className="nav-item">
@@ -60,7 +61,7 @@ function Header() {
 
               <li className="nav-item">
                 <Link className="nav-link" to="/cart">
-                  {t("Cart")} {cartItems.length}
+                 <BsCartPlusFill/> {t("Cart")} {cartItems.length}
                 </Link>
               </li>
               <li className="nav-item ">

@@ -4,6 +4,7 @@ import { useEffect } from "react";
 import Layout from "../components/Layout";
 import { getDocs, collection } from "firebase/firestore";
 import firedb from "../firebaseConfig";
+import { useTranslation } from "react-i18next";
 
 function Orders() {
   const [orders, setOrders] = useState([]);
@@ -24,10 +25,11 @@ function Orders() {
       console.log(error);
     }
   }
+  const { t } = useTranslation(["common"]);
 
   return (
     <Layout>
-      <h2 className="mt-2"> Orders History</h2>
+      <h2 className="mt-2"> {t("Orders History")}</h2>
       <hr/>
       {orders.map((order) => {
         return (
