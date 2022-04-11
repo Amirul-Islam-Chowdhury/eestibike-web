@@ -13,7 +13,7 @@ function Services() {
       <th scope="col">#</th>
       <th scope="col">Service</th>
       <th scope="col">Fees</th>
-      <th scope="col">Availity</th>
+      <th scope="col">Availability</th>
     </tr>
   </thead>
   <tbody>

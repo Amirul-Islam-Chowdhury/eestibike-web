@@ -29,7 +29,7 @@ function Header() {
   return (
     <div>
       <nav className="navbar navbar-expand-lg navbar-light bg-dark">
-        <div className="container-fluid">
+        <div className="container">
           <Link className="navbar-brand" to="/">
             EestiBikes
           </Link>

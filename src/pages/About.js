@@ -2,7 +2,7 @@ import React from "react";
 
 function About() {
   return (
-    <div className="container justify-content-end">
+    <div className="about-head">
       <h3>Electric motorized bicycles and scooters</h3>
       <p>
         We happily service all electric motorized bicycles sold through our

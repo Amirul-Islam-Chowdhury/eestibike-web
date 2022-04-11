@@ -53,7 +53,7 @@ function App() {
           <Route path="/booking" excact element={< Booking />}/>
           <Route path="/contact" excact element={< Contact />}/>
           <Route path="/services" excact element={< Services />}/>
-          <Route path="/orders" excact element={< Orders />}/>
+          <Route path="/orders" excact element={<ProtectedRoutes> <Orders /></ProtectedRoutes>}/>
         </Routes>
       </BrowserRouter>
       </Suspense>

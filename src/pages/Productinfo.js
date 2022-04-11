@@ -28,19 +28,19 @@ function Productinfo() {
   return (
     <Layout>
       <div className="conatiner">
-        <div className="row justify-content-center mt-4">
+        <div className="row justify-content-center mt-5">
           <div className="col-md-8">
             {product && (
               <div>
                 <h5>{product.name}</h5>
                 <img
                   src={product.imageURL}
-                  alt=""
-                  className="product-info-img"
+                  alt=""  
+                  className="product-info-img mt-5" 
                 />
                 <hr />
                 <p>{product.description}</p>
-                <div className="d-flex justify-content-end my-3">
+                <div className="d-flex  mt-9">
                   
                 </div>
               </div>

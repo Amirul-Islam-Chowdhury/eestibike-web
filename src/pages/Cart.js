@@ -6,6 +6,7 @@ import { FaTrash } from "react-icons/fa";
 import {Modal} from 'react-bootstrap'
 import {addDoc, collection} from "firebase/firestore"
 import firedb from "../firebaseConfig";
+import { toast } from "react-toastify";
 
 function Cart() {
   const [show, setShow] = useState(false);
@@ -56,11 +57,12 @@ function Cart() {
     try {
 
       const result= await addDoc(collection(firedb , "orders"), orderInfo)
-      alert(" Order placed successfully")
+      console.log(result)
+      toast.success("Order Placed")
       handleClose()
     } catch (error) {
+      toast.error("You have confirmed order without infomation !")
 
-alert("failed!")      
     }
 
 
@@ -76,7 +78,7 @@ alert("failed!")
             return (
               <tr>
                 <td>
-                  <img src={item.imageURL} height="80" width="80" />
+                  <img src={item.imageURL} height="80" width="80"  alt=""/>
                 </td>
                 <td>{item.name}</td>
                 <td>{item.price}</td>
@@ -122,7 +124,7 @@ alert("failed!")
             <input
               type="text"
               className="form-control mt-2"
-              placeholder="Email"
+              placeholder=" Address"
               value={address}
               onChange={(e) => {
                 setAddress(e.target.value);
