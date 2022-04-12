@@ -14,6 +14,8 @@ function Signup() {
     try {
         
       const result= await createUserWithEmailAndPassword( auth,email, password)
+      localStorage.setItem("currentuser", JSON.stringify(result));
+      window.location.href = "/";
       console.log(result);
       toast.success(" Registration success")
 
