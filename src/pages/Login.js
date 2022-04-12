@@ -26,7 +26,7 @@ function Login() {
     } catch (error) {
       console.log(error);
       setSpinner(false)
-      toast.error(" Wrong attemp")
+      toast.error(" Please enter correct Email & Password")
     }
   };
 

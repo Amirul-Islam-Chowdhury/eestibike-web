@@ -21,7 +21,7 @@ function Signup() {
 
     } catch (error) {
       console.log(error)
-      toast.error("Failed")
+      toast.error("Already have account ?")
       
     }  }
   return (
